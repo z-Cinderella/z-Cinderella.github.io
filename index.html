@@ -182,21 +182,29 @@
                 Singapore has a large elderly population, and many families rely on caregivers
                 to support their older family members. To help caregivers manage their daily
                 responsibilities more effectively while building closer connections with the
-                people they care for, we designed a conceptual smart-glasses product based on
-                AiSee.
+                people they care for, we designed a smart glasses prototype based on AiSee.
               </p>
               <div class="project-actions detail-actions">
                 <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="aicare-details">
                   Explore Details <span aria-hidden="true">↓</span>
                 </button>
                 <a href="https://github.com/z-Cinderella/AICare-SmartGlass">GitHub repository</a>
-                <div class="detail-panel" id="aicare-details" hidden>
-                  <ol class="detail-list">
-                    <li>AICare uses microphone input to analyze the content of conversations between caregivers and older adults, as well as the older adult’s tone of voice.</li>
-                    <li>AICare uses camera input to capture and analyze the older adult’s initial facial expressions.</li>
-                    <li>AICare combines the results above to provide caregivers with actionable suggestions on how to respond.</li>
-                    <li>AICare delivers voice reminders to caregivers at the scheduled time for the caregiving task.</li>
-                  </ol>
+                <div class="detail-panel feature-details" id="aicare-details" hidden>
+                  <section>
+                    <p><strong>Conversation Understanding:</strong> Uses WhisperX to transcribe conversations between caregivers and older adults and distinguish between speakers.</p>
+                  </section>
+                  <section>
+                    <p><strong>Vocal Tone Analysis:</strong> Uses Wav2Vec2 to identify emotional cues in the older adult’s tone of voice.</p>
+                  </section>
+                  <section>
+                    <p><strong>Facial Expression Analysis:</strong> Uses camera input and a vision model to analyze the older adult’s initial facial expressions.</p>
+                  </section>
+                  <section>
+                    <p><strong>Context-Aware Guidance:</strong> Integrates conversational, vocal, and visual results through GPT-4o to generate actionable caregiving suggestions.</p>
+                  </section>
+                  <section>
+                    <p><strong>Schedule Reminders:</strong> Delivers voice reminders to caregivers at the scheduled time for the caregiving task.</p>
+                  </section>
                 </div>
               </div>
             </div>
@@ -221,10 +229,27 @@
               <p class="meta">Navigation · Public spaces</p>
               <h3>Portable Navigation for Target Booth Locations at Fairgrounds</h3>
               <p>
-                A navigation program that helps attendees find target booths in crowded
-                exhibition environments. The design emphasizes easy guidance, lower visual
-                strain, and rapid orientation when the surrounding space is busy.
+                A portable navigation concept designed to help attendees find target booths in
+                crowded exhibition environments. It uses simple arrow-based cues to support rapid
+                orientation, reduce repeated screen checking, and minimize visual strain in busy
+                spaces.
               </p>
+              <div class="standalone-details detail-actions">
+                <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="navigation-details">
+                  Explore Details <span aria-hidden="true">↓</span>
+                </button>
+                <div class="detail-panel feature-details" id="navigation-details" hidden>
+                  <section>
+                    <p><strong>Research:</strong> Surveyed 35 participants to identify navigation challenges in crowded venues.</p>
+                  </section>
+                  <section>
+                    <p><strong>Design:</strong> Co-designed interaction flows in Figma, product form models in Rhinoceros 3D, and a user story map in Miro.</p>
+                  </section>
+                  <section>
+                    <p><strong>Evaluation:</strong> Tested the prototype with six participants.</p>
+                  </section>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -247,11 +272,11 @@
               <p class="meta">Machine learning · Image classification</p>
               <h3>Image Classification Based on Fully Self-Attention Network and Feature Fusion</h3>
               <p>
-                A research project applying a Self-Attention Network (SANet) originally developed
-                for image recognition to image classification. I explored feature extraction and
-                fusion across network layers and evaluated the SANet19-based model on public
-                datasets. The results showed that feature fusion could improve accuracy, recall,
-                and other evaluation metrics.
+                A research project exploring the potential of Self-Attention Networks (SANet) for
+                image classification. The study compared three network architectures and four
+                convolutional modules, and introduced feature extraction and fusion across the
+                self-attention layers of SANet19. Evaluations on two public datasets showed that
+                feature fusion could improve accuracy, recall, and other performance metrics.
               </p>
             </div>
           </article>
