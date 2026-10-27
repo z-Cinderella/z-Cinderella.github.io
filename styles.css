@@ -472,6 +472,7 @@ h2 {
 }
 
 .publication-card {
+  position: relative;
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   align-items: start;
@@ -481,6 +482,27 @@ h2 {
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
+}
+
+.publication-tree {
+  position: relative;
+  display: grid;
+  gap: 28px;
+}
+
+.publication-tree::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 15px;
+  width: 2px;
+  background: linear-gradient(var(--accent), color-mix(in srgb, var(--accent-2) 75%, transparent));
+  opacity: 0.45;
+}
+
+.publication-tree .publication-card {
+  margin-left: 44px;
 }
 
 .publication-mark {
@@ -546,6 +568,131 @@ h2 {
   animation-delay: 0.7s;
 }
 
+.publication-trajectory {
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--line) 48%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(color-mix(in srgb, var(--line) 48%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    radial-gradient(circle at 26% 30%, color-mix(in srgb, var(--accent-3) 24%, transparent), transparent 35%),
+    color-mix(in srgb, var(--bg-soft) 82%, white);
+}
+
+.publication-trajectory::before {
+  top: 28px;
+  left: 24px;
+  width: 168px;
+  height: 142px;
+  border: 1px dashed color-mix(in srgb, var(--accent-2) 60%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  animation: trajectory-orbit 8s linear infinite;
+}
+
+.publication-trajectory::after {
+  top: 35px;
+  right: auto;
+  bottom: auto;
+  left: 31px;
+  width: 58px;
+  height: 42px;
+  border: 2px solid color-mix(in srgb, var(--accent-3) 72%, transparent);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent-3) 8%, transparent);
+  box-shadow: none;
+  animation: context-window-shift 6.4s ease-in-out infinite;
+}
+
+.publication-trajectory span {
+  position: absolute;
+  display: block;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  transform-origin: center;
+}
+
+.publication-trajectory .trajectory-path {
+  z-index: 1;
+  top: 73px;
+  left: 31px;
+  width: 154px;
+  height: 82px;
+  border: 2px dashed color-mix(in srgb, var(--accent-2) 72%, transparent);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 70% 45% 0 0;
+  background: transparent;
+  transform: rotate(10deg);
+  animation: trajectory-drift 5.2s ease-in-out infinite;
+}
+
+.publication-trajectory .context-window {
+  z-index: 2;
+  width: 42px;
+  height: 31px;
+  border: 1px solid color-mix(in srgb, var(--ink) 45%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--card) 68%, transparent);
+  animation: context-pulse 4.6s ease-in-out infinite;
+}
+
+.publication-trajectory .context-one {
+  top: 57px;
+  right: 25px;
+}
+
+.publication-trajectory .context-two {
+  right: 58px;
+  bottom: 28px;
+  animation-delay: 1.3s;
+}
+
+.publication-trajectory .task {
+  z-index: 3;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px color-mix(in srgb, currentColor 13%, transparent);
+  animation: concurrent-task 3.6s ease-in-out infinite;
+}
+
+.publication-trajectory .task-one {
+  top: 51px;
+  left: 54px;
+  color: var(--accent-3);
+  background: var(--accent-3);
+}
+
+.publication-trajectory .task-two {
+  top: 101px;
+  left: 103px;
+  color: var(--accent);
+  background: var(--accent);
+  animation-delay: 0.8s;
+}
+
+.publication-trajectory .task-three {
+  right: 42px;
+  bottom: 39px;
+  color: var(--accent-2);
+  background: var(--accent-2);
+  animation-delay: 1.6s;
+}
+
+.publication-trajectory .trust-trace {
+  z-index: 2;
+  bottom: 23px;
+  left: 28px;
+  width: 74px;
+  height: 32px;
+  border-top: 2px solid color-mix(in srgb, var(--accent) 62%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  transform: rotate(-8deg);
+  animation: trust-evolution 6.8s ease-in-out infinite;
+}
+
 .publication-card h3,
 .project-card h3,
 .direction-grid h3 {
@@ -567,6 +714,33 @@ h2 {
   margin: -4px 0 12px;
   color: var(--accent);
   font-weight: 800;
+}
+
+.publication-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: center;
+  margin: -4px 0 12px;
+}
+
+.publication-status p {
+  margin: 0;
+  color: color-mix(in srgb, var(--muted) 82%, var(--ink));
+}
+
+.accepted-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-2) 13%, transparent);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .detail-actions {
@@ -1272,6 +1446,75 @@ h2 {
   }
 }
 
+@keyframes trajectory-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes context-window-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(86px, 49px);
+    opacity: 0.92;
+  }
+}
+
+@keyframes trajectory-drift {
+  0%,
+  100% {
+    transform: rotate(10deg) translate(0, 0);
+    opacity: 0.46;
+  }
+  50% {
+    transform: rotate(6deg) translate(4px, -5px);
+    opacity: 0.92;
+  }
+}
+
+@keyframes context-pulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.48;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.86;
+  }
+}
+
+@keyframes concurrent-task {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.88);
+    opacity: 0.62;
+  }
+  50% {
+    transform: translateY(-7px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes trust-evolution {
+  0%,
+  100% {
+    transform: rotate(-8deg) scaleX(0.72);
+    opacity: 0.45;
+  }
+  55% {
+    transform: rotate(-2deg) scaleX(1.12);
+    opacity: 0.92;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1321,6 +1564,7 @@ h2 {
     max-width: 420px;
   }
 
+  .publication-tree .publication-card,
   .project-card {
     margin-left: 34px;
   }
@@ -1356,11 +1600,13 @@ h2 {
     width: min(100% - 28px, 1120px);
   }
 
+  .publication-tree .publication-card,
   .project-card {
     margin-left: 24px;
     padding: 16px;
   }
 
+  .publication-tree::before,
   .project-tree::before {
     left: 7px;
   }
